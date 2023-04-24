@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="ElectionSystem" id="Project-6c6" database="MySql" >
+	<schema name="electionsystem" >
+		<table name="contributor" prior="contrbuter" >
+			<column name="c_contributing_num" type="INT" jt="4" mandatory="y" />
+			<column name="c_name" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="c_national_id" type="INT" jt="4" mandatory="y" />
+			<column name="c_electoral_symbol" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_contributor" unique="PRIMARY_KEY" >
+				<column name="c_contributing_num" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="election" prior="electio" >
+			<column name="e_id" type="INT" jt="4" mandatory="y" />
+			<column name="v_voting_num" type="INT" jt="4" mandatory="y" />
+			<column name="c_contributing_num" type="INT" jt="4" mandatory="y" />
+			<index name="pk_election" unique="PRIMARY_KEY" >
+				<column name="e_id" />
+			</index>
+			<fk name="fk_election_voter" to_schema="electionsystem" to_table="voter" >
+				<fk_column name="v_voting_num" pk="v_voting_num" />
+			</fk>
+			<fk name="fk_election_contributor" to_schema="electionsystem" to_table="contributor" >
+				<fk_column name="c_contributing_num" pk="c_contributing_num" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="voter" prior="v" >
+			<column name="v_voting_num" prior="v_id" type="INT" jt="4" mandatory="y" />
+			<column name="v_name" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="v_national_id" type="INT" jt="4" mandatory="y" />
+			<column name="v_phone" type="VARCHAR" length="11" jt="12" mandatory="y" />
+			<index name="pk_voter" unique="PRIMARY_KEY" >
+				<column name="v_voting_num" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-1db2" show_relation="columns" >
+		<comment><![CDATA[Election System]]></comment>
+		<entity schema="electionsystem" name="contributor" color="BED3F4" x="304" y="80" />
+		<entity schema="electionsystem" name="election" color="BED3F4" x="48" y="80" />
+		<entity schema="electionsystem" name="voter" color="BED3F4" x="48" y="272" />
+		<group name="election" color="ECF0F7" >
+			<entity schema="electionsystem" name="election" />
+			<entity schema="electionsystem" name="contributor" />
+			<entity schema="electionsystem" name="voter" />
+		</group>
+	</layout>
+</project>

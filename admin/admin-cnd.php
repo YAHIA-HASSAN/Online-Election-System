@@ -37,6 +37,9 @@
                         Name
                     </th>
                     <th>
+                        Votes
+                    </th>
+                    <th>
                         National ID
                     </th>
                     <th>
@@ -54,6 +57,11 @@
                                 <tr>
                                     <th> '.$row['c_candidate_num'].' </th>
                                     <th> '.$row['c_name'].' </th>
+                                    ';
+                        $query2="select count(e_status) from election_system.election where election.e_status=1 and c_candidate_num=".$row['c_candidate_num'];
+                        $row2=mysqli_fetch_assoc(mysqli_query($conn,$query2));
+                        echo '      
+                                    <th> '.$row2['count(e_status)'].' </th>
                                     <th> '.$row['c_national_id'].' </th>
                                     <th> <img src="../symbols/'.$row['c_electoral_symbol'].'" width=10% height=10%></th>
                                     <th> <a href="edit.php"> Edit</th>

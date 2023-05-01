@@ -50,12 +50,12 @@ $result = mysqli_query($conn, $query);
                                            <img src="./symbols/' . $row['c_electoral_symbol'] . '" width=20% height=20%>
                                         </th>
                                         <th>
-                                            <input type="checkbox" id="' . $row['c_name'] . '-yes" name="' . $row['c_name'] . '-yes" value="Yes">
-                                            <label for="' . $row['c_name'] . '-yes"> Yes </label>
+                                            <input type="checkbox" id="' . $row['c_candidate_num'] . '" name="' . $row['c_candidate_num'] . '" value="Yes">
+                                            <label for="' . $row['c_candidate_num'] . '"> Yes </label>
                                         </th>
                                         <th>
-                                            <input type="checkbox" id="' . $row['c_name'] . '-no" name="' . $row['c_name'] . '-no" value="No">
-                                            <label for="' . $row['c_name'] . '-no"> No </label>
+                                            <input type="checkbox" id="' . $row['c_candidate_num'] . '" name="' . $row['c_candidate_num'] . '" value="No">
+                                            <label for="' . $row['c_candidate_num'] . '"> No </label>
                                         </th>
                                     </tr>
                             ';

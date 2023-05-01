@@ -8,7 +8,8 @@ $error_arr=array();
 if(isset($_GET['error_fields'])){
     $error_arr=explode(",",$_GET['error_fields']);
 }
-$cnd_id = $_SESSION['cndID'];
+$cnd_id = $_GET['cnd_id'];
+$_SESSION['cndID']=$cnd_id;
 $conn = mysqli_connect("localhost", "root", "", "election_system");
 $query = "select * from election_system.candidates where c_candidate_num=" . $cnd_id;
 $result = mysqli_query($conn, $query);
@@ -20,7 +21,7 @@ if (!$result) {
 <html>
 
 <head>
-    <title>Admin</title>
+    <title>Admin - Edit</title>
     <link rel="stylesheet" href="../elecstyle.css">
 
     <div class="head">

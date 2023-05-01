@@ -4,7 +4,7 @@
         header("Location:admin-cnd.php");
         exit;
     }
-    $cnd_id=$_SESSION['cndID'];
+    $cnd_id=$_GET['cnd_id'];
     $conn=mysqli_connect("localhost","root","","election_system");
     $query="delete from election_system.candidates where c_candidate_num=".$cnd_id;
     $result=mysqli_query($conn,$query);

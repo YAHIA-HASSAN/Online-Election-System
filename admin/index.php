@@ -9,7 +9,7 @@
 ?>
 <html>
 <header>
-    <title>Election - Login</title>
+    <title>Admin - Login</title>
     <link rel="stylesheet" href="../elecstyle.css">
 </header>
 <body>

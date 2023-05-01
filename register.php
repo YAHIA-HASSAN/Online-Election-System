@@ -8,7 +8,7 @@
 ?>
 <html>
 <header>
-    <title>Bug Tracker - Registeration</title>
+    <title>Election - Registeration</title>
     <link rel="stylesheet" href="elecstyle.css">
 </header>
 

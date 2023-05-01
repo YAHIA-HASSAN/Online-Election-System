@@ -14,7 +14,7 @@
 ?>
 <html>
     <head>
-        <title>Admin</title>
+        <title>Admin - cnd</title>
         <link rel="stylesheet" href="../elecstyle.css">
 
         <div class="head">
@@ -52,7 +52,6 @@
             <tbody>
               <?php
                     while($row=mysqli_fetch_assoc($result)){
-                        $_SESSION['cndID']=$row['c_candidate_num'];
                         echo '
                                 <tr>
                                     <th> '.$row['c_candidate_num'].' </th>
@@ -60,12 +59,13 @@
                                     ';
                         $query2="select count(e_status) from election_system.election where election.e_status=1 and c_candidate_num=".$row['c_candidate_num'];
                         $row2=mysqli_fetch_assoc(mysqli_query($conn,$query2));
+                        
                         echo '      
                                     <th> '.$row2['count(e_status)'].' </th>
                                     <th> '.$row['c_national_id'].' </th>
                                     <th> <img src="../symbols/'.$row['c_electoral_symbol'].'" width=10% height=10%></th>
-                                    <th> <a href="edit.php"> Edit</th>
-                                    <th> <a href="deleteProcess_db.php"> Delete</th>
+                                    <th> <a href="edit.php?cnd_id='.$row['c_candidate_num'].'"> Edit</th>
+                                    <th> <a href="deleteProcess_db.php?cnd_id='.$row['c_candidate_num'].'"> Delete</th>
                                 </tr>
                         ';
                     }

@@ -21,7 +21,7 @@
 ?>
 <html>
     <head>
-        <title>Admin</title>
+        <title>Admin - ctrl</title>
         <link rel="stylesheet" href="../elecstyle.css">
 
         <div class="head">
